@@ -23,6 +23,9 @@ def main():
     print(f'Vault supply:\t\t{total_supply / 1e18}')
     insurance = vault_contract.functions.insurance().call()
     print(f'Insurance fund:\t\t{insurance / 1e18}')
+    credit = vault_contract.functions.credit().call()
+    debt = vault_contract.functions.debt().call()
+    print(f'Credit - Debt:\t\t{((credit - debt) / 1e18):.18f}')
     locked = vault_contract.functions.locked().call()
     if (locked / 1e18 < 1):
         locked = 1e18 - locked
