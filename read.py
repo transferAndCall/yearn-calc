@@ -24,6 +24,10 @@ def main():
     insurance = vault_contract.functions.insurance().call()
     print(f'Insurance fund:\t\t{insurance / 1e18}')
     locked = vault_contract.functions.locked().call()
+    if (locked / 1e18 < 1):
+        locked = 1e18 - locked
+    else:
+        locked = 0
     print(f'Percent locked:\t\t{locked / 1e18}')
     rate = vault_contract.functions.getPricePerFullShare().call()
     print(f'Current yaLINK rate:\t{rate / 1e18}')
