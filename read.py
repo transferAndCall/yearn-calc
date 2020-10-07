@@ -21,9 +21,11 @@ def main():
     print(f'Vault balance:\t\t{vault_balance / 1e18}')
     total_supply = vault_contract.functions.totalSupply().call()
     print(f'Vault supply:\t\t{total_supply / 1e18}')
-    rate = vault_contract.functions.getPricePerFullShare().call()
+    insurance = vault_contract.functions.insurance().call()
+    print(f'Insurance fund:\t\t{insurance / 1e18}')
     locked = vault_contract.functions.locked().call()
     print(f'Percent locked:\t\t{locked / 1e18}')
+    rate = vault_contract.functions.getPricePerFullShare().call()
     print(f'Current yaLINK rate:\t{rate / 1e18}')
     if (len(sys.argv) > 1):
         my_balance = vault_contract.functions.balanceOf(str(sys.argv[1])).call()
