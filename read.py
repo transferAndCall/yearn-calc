@@ -37,6 +37,7 @@ def main():
     if (len(sys.argv) > 1):
         my_balance = vault_contract.functions.balanceOf(str(sys.argv[1])).call()
         print(f'My balance (yaLINK):\t{my_balance / 1e18}')
+        print(f'My percentage share:\t{my_balance / vault_balance * 100}')
         can_withdraw = rate / 1e18 * my_balance / 1e18
         can_withdraw_yalink = vault_contract.functions.maxWithdrawal(str(sys.argv[1])).call()
         print(f'Can withdraw (yaLINK):\t{can_withdraw_yalink / 1e18}')
