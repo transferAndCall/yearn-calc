@@ -42,6 +42,7 @@ def main():
         can_withdraw_yalink = vault_contract.functions.maxWithdrawal(str(sys.argv[1])).call()
         print(f'Can withdraw (yaLINK):\t{can_withdraw_yalink / 1e18}')
         print(f'Can withdraw (aLINK):\t{can_withdraw}')
+        print(f'Insurance gains:\t{insurance * (my_balance / vault_balance) / 1e18}')
 
 
 if __name__ == '__main__':
