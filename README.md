@@ -20,6 +20,22 @@ The script can also be ran without a "youraddress"
 python read.py youraddress
 ```
 
+### Output
+
+- **Health factor**: The current health factor of the vault
+- **Vault balance**: The current balance of the vault
+- **Vault supply**: The current supply of yaLINK tokens
+- **Insurance fund**: The current balance of the insurance fund
+- **Credit - Debt**: Balance of credit minus debt. If positive, the vault is profitable. If negative, the vault is not profitable.
+- **Percent locked**: The amount of aLINK locked from safe withdrawals
+- **Current yaLINK rate**: The amount of yaLINK earned when depositing (divide by this number) and aLINK earned when withdrawing (multiply by this number)
+- **My balance (yaLINK)**: Your current yaLINK balance
+- **My percentage share**: Your percentage share of the vault
+- **Can withdraw (yaLINK)**: The amount you can withdraw from safe withdraw
+- **Can withdraw (aLINK)**: The total amount of aLINK you can earn from withdrawing
+- **Insurance gains**: The amount of aLINK you would gain if insurance is claimed
+
+
 ## harvest.py
 
 Run ganache-cli with a fork of mainnet, unlocking the Yearn: Deployer's address
@@ -35,3 +51,13 @@ Then run the following command
 ```
 python harvest.py
 ```
+
+### Output
+
+- **Harvesting crops**: Info line to indicate the script is running
+- **Calling harvest on the USDC strategy**: Ensures the USDC strategy has the latest gains
+- **Calling yearn on the controller**: Ensures the controller (for the USDC vault) is up to date
+- **Calling delegatedHarvest on the yaLINK vault**: Harvests the yaLINK vault
+- **Rate Before**: The rate of getPricePerFullShare before calling harvest
+- **Rate After**: The rate of getPricePerFullShare after calling harvest
+- **Increase**: The percentage increase of the rate from before and after calling harvest
