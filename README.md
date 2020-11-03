@@ -61,3 +61,29 @@ python harvest.py
 - **Rate Before**: The rate of getPricePerFullShare before calling harvest
 - **Rate After**: The rate of getPricePerFullShare after calling harvest
 - **Increase**: The percentage increase of the rate from before and after calling harvest
+
+## insurance.py
+
+Run ganache-cli with a fork of mainnet, unlocking the Yearn: Deployer's address
+
+Replace PROJECT_ID with your Infura project ID
+
+```
+ganache-cli --fork https://mainnet.infura.io/v3/PROJECT_ID --unlock 0x2d407ddb06311396fe14d4b49da5f0471447d45c
+```
+
+Then run the following command
+
+```
+python insurance.py
+```
+
+### Output
+
+- **Claiming insurance**: Info line to indicate the script is running
+- **Calling claimInsurance on the delegated controller**: Transfers the insurance fund (aLINK) from the vault and sends it to the controller
+- **Calling inCaseTokensGetStuck on the delegated controller**: Transfers the aLINK from the controller to the yearn deployer
+- **Transferring aLINK to yaLINK vault**: Transfers the aLINK from the yearn deployer to the vault
+- **Rate Before**: The rate of getPricePerFullShare before the insurance claim
+- **Rate After**: The rate of getPricePerFullShare after the insurance claim
+- **Increase**: The percentage increase of the rate from before and after the insurance claim
